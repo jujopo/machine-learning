@@ -1,0 +1,15 @@
+# Environment files (holding secrets)
+.env
+
+# Virtual environments
+.venv/
+
+# Local data files (avoid clogging GitHub with large data)
+*.json
+/data
+data/
+*.csv 
+
+# Local log files
+logs/
+*.log
