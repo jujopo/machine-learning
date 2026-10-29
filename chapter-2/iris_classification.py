@@ -9,7 +9,7 @@ from perceptron import Perceptron
 def plot_decision_regions(X, y, classifier, resolution=0.02):
     # Set up marker generator and color map
     markers = ('o', 's', '^', 'v', '<')
-    colors = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
+    colors = ('orange', 'blue', 'lightgreen', 'gray', 'cyan')
     cmap = ListedColormap(colors[:len(np.unique(y))])
 
     # Plot the decision surface.
