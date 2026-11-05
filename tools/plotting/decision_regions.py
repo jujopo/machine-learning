@@ -1,12 +1,8 @@
-import os
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
-from perceptron import Perceptron
-
-def plot_decision_regions(X, y, classifier, test_idx=None,
+def decision_regions(X, y, classifier, test_idx=None,
                           resolution=0.02):
     # Set up marker generator and color map
     markers = ('o', 's', '^', 'v', '<')
@@ -46,46 +42,3 @@ def plot_decision_regions(X, y, classifier, test_idx=None,
                     s=100, label='Test set',
                     )
     return plt
-
-def main():
-    s = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
-    print("From URL: ", s)
-
-    df = pd.read_csv(s,
-            header=None,
-            encoding="utf-8")
-    # print(df.tail())
-
-    # Select setosa and versicolor.
-    y = df.iloc[:100, 4].values
-    y = np.where(y == "Iris-setosa", 0, 1)
-    # Extract sepal length and petal length.
-    X = df.iloc[:100, [0, 2]].values
-    # Plot data
-    # plt.scatter(X[:50, 0], X[:50, 1],
-    #         color='#5A4FCF', marker='o', label='Setosa')
-    # plt.scatter(X[50:100, 0], X[50:100, 1],
-    #             color='#6A5ACD', marker='s', label='Versicolor')
-    # plt.xlabel('Sepal length [cm]')
-    # plt.ylabel('Petal length [cm]')
-    # plt.legend(loc='upper left')
-    # plt.show()
-
-    pnn = Perceptron(eta=0.1, n_iter=10)
-    pnn.fit(X, y)
-
-    # Plot the error convergence.
-    # plt.plot(range(1, len(pnn.errors_) + 1),
-    #         pnn.errors_, marker='o')
-    # plt.xlabel('Epochs')
-    # plt.ylabel('Number of updates')
-    # plt.show()
-
-    plot_decision_regions(X, y, classifier=pnn)
-    plt.xlabel('Sepal length [cm]')
-    plt.ylabel('Petal length [cm]')
-    plt.legend(loc='upper left')
-    plt.show()
-    
-if __name__ == "__main__":
-    main()
