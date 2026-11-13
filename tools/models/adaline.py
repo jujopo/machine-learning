@@ -30,11 +30,11 @@ class AdalineGD(BaseLinearClassifier):
         
         Parameters
         ------------
-        X : {array-like}, shape = [n_examples, n_features]
+        X : {array-like}, shape = [m_examples, n_features]
             Training vectors, where n_examples is the number of
             examples and n_features is the number of features.
 
-        y : array-like, shape = [n_examples]
+        y : array-like, shape = [m_examples]
             Target values.
 
         Returns
